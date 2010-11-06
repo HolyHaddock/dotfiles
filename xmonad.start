@@ -1,0 +1,25 @@
+#!/bin/bash
+
+xrdb -merge .Xresources
+
+trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --height 12 --transparent true --tint 0x000000 &
+
+xscreensaver -no-splash &
+
+if [ -x /usr/bin/xfce4-power-manager ] ; then
+   sleep 1
+   xfce4-power-manager
+fi
+
+if [ -x /usr/bin/nm-applet ] ; then
+   nm-applet --sm-disable &
+fi
+
+pidgin &
+wallpaper.sh &
+xfce4-volumed &
+emacs &
+chromium-browser &
+dropbox start &
+
+exec xmonad
