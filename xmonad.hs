@@ -6,6 +6,7 @@ import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.NoBorders
 import System.IO
+import qualified XMonad.StackSet as W
 
 myManageHook = composeAll
     [ className =? "Gimp"      --> doFloat
@@ -13,21 +14,29 @@ myManageHook = composeAll
     ] 
     <+> composeOne
     [ isFullscreen -?> doFullFloat
-    ]
+    ] <+> (composeAll . concat $ [
+      [ resource  =? c --> doF (W.shift "chat") | c <- ["skype"] ]
+     ,[ resource  =? w --> doF (W.shift "www")  | w <- ["Chromium"] ]
+     ,[ resource  =? d --> doF (W.shift "dev")  | d <- ["emacs"] ]
+     ,[ resource  =? c --> doF (W.shift "cmd")  | c <- ["lxterminal"] ]
+   ])
+-- To identify classnames, run xprop, click a window and look for WM_CLASS
+
+myWorkspaces = ["www", "dev", "cmd", "chat", "5", "6", "7", "8", "9"]
 
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig
-        { manageHook = manageDocks <+> myManageHook -- make sure to include myManageHook definition from above
-                        <+> manageHook defaultConfig
+        { manageHook = manageDocks <+> myManageHook <+> (manageHook defaultConfig)
         , layoutHook = avoidStruts  $  smartBorders $ layoutHook defaultConfig
         , logHook = dynamicLogWithPP $ xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "green" "" . shorten 50
                         }
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
-        , terminal = "gnome-terminal"
+        , terminal = "lxterminal"
         , startupHook = myStartupHook
+        , workspaces = myWorkspaces
         } `additionalKeys`
         [ ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
         , ((0, xK_Print), spawn "scrot")
@@ -43,15 +52,15 @@ myStartupHook = do
   spawnCommand "xscreensaver" "xscreensaver -no-splash"
   spawnCommand "syndaemon" "syndaemon -i 1 -d"
   spawnCommand "unclutter" "unclutter -idle 1"
-  spawnNoargs "xfce4-power-manager"
+  --spawnNoargs "xfce4-power-manager"
   spawnCommand "nm-applet" "nm-applet --sm-disable"
-  spawnNoargs "pidgin"
-  spawnNoargs "empathy"
+  --spawnNoargs "pidgin"
+  --spawnNoargs "empathy"
   spawnNoargs "wallpaper.sh"
-  spawnNoargs "xfce4-volumed"
+  spawnNoargs "pnmixer"
   spawnNoargs "emacs"
-  spawnNoargs "chromium-browser"
-  spawnNoargs "padevchooser"
-  spawnNoargs "gnome-settings-daemon"
-  spawnNoargs "ivman"
+  spawnNoargs "chromium"
+--  spawnNoargs "padevchooser" ???
+--  spawnNoargs "gnome-settings-daemon"
+--  spawnNoargs "ivman"
   spawnCommand "dropbox" "dropbox start"
