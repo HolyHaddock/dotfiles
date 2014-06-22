@@ -1,0 +1,6 @@
+*.cache
+auto-save-list/
+*~
+\#*#
+server/
+.emacs.desktop*
