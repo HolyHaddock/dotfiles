@@ -33,14 +33,18 @@
      (concat "#%" (buffer-name) "#")))))
 
 (require 'package)
+(add-to-list 'package-archives 
+         '("melpa" . "http://melpa-stable.milkbox.net/packages/"))
 (package-initialize)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (defun my-haskell-mode-hook ()
   (setq line-number-mode t)
   (setq column-number-mode t)
 )
 
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-decl-scan)
@@ -59,3 +63,6 @@
 ;; For work:
 ;; Allow hash to be entered  
 (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+
+(require 'ido)
+(ido-mode t)
