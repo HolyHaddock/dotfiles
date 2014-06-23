@@ -3,8 +3,8 @@
 (setq inhibit-startup-message t)
 (server-start)
 (desktop-save-mode 1)
-(tool-bar-mode 0)
-(menu-bar-mode 0)
+(if (fboundp tool-bar-mode) (tool-bar-mode 0))
+(if (fboundp menu-bar-mode) (menu-bar-mode 0))
 (setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
 
