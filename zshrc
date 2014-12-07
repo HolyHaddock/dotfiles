@@ -48,7 +48,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting)
+plugins=(git heroku  zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -61,3 +61,5 @@ source $ZSH/oh-my-zsh.sh
 mkcd () {
     mkdir -p "$@" && cd "$@"
 }
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

@@ -1,6 +1,6 @@
 [user]
 	name = Mark Harris
-	email = mark.harris@digital.cabinet-office.gov.uk
+	email = holyhaddock@gmail.com
 [help]
 	autocorrect = 1
 [alias]
@@ -10,7 +10,7 @@
 [push]
 	default = simple
 [core]
-	editor = emacs
+	editor = emacsclient
 	excludesfile = /Users/markharris/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
