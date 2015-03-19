@@ -48,7 +48,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git heroku  zsh-syntax-highlighting docker)
+plugins=(git heroku  zsh-syntax-highlighting docker vagrant bundler)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -63,3 +63,6 @@ mkcd () {
 }
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### Set up rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

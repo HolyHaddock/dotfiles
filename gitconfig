@@ -19,4 +19,9 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [color]
-	ui = true
+  diff            = auto
+  status          = auto
+  branch          = auto
+  ui              = true
+[hub]
+  host=https://github.tools.tax.service.gov.uk
