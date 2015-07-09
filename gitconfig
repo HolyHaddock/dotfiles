@@ -1,6 +1,6 @@
 [user]
 	name = Mark Harris
-	email = holyhaddock@gmail.com
+	email = mark.harris@digital.cabinet-office.gov.uk
 [help]
 	autocorrect = 1
 [alias]
@@ -23,5 +23,3 @@
   status          = auto
   branch          = auto
   ui              = true
-[hub]
-  host=https://github.tools.tax.service.gov.uk
