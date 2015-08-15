@@ -67,4 +67,4 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### Set up rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-if which emacs > /dev/null; then eval emacs --daemon
+if (which emacs > /dev/null) && (! pidof emacs > /dev/null) then emacs --daemon; fi
