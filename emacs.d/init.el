@@ -66,3 +66,5 @@
 
 (require 'ido)
 (ido-mode t)
+
+(windmove-default-keybindings)
