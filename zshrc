@@ -68,3 +68,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # if (which emacs > /dev/null) && (! pidof emacs > /dev/null) then emacs --daemon; fi
+
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+eval "$(docker-machine env dev)"
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
