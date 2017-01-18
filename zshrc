@@ -73,3 +73,10 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 [[ -f docker-machine ]] && eval "$(docker-machine env dev)"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export PATH="/home/mark/.linuxbrew/bin:$PATH"
+export MANPATH="/home/mark/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="/home/mark/.linuxbrew/share/info:$INFOPATH"
+
+test -e "/home/mark/.linuxbrew/share/zsh/site-functions" && source /home/mark/.linuxbrew/share/zsh/site-functions
+
+export PATH="/home/mark/.cabal/bin:$PATH"
