@@ -10,7 +10,7 @@
 [push]
 	default = simple
 [core]
-	editor = emacsclient
+	editor = nano
 	excludesfile = /Users/markharris/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"

@@ -69,8 +69,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # if (which emacs > /dev/null) && (! pidof emacs > /dev/null) then emacs --daemon; fi
 
-[[ -f brew ]] && [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
 [[ -f docker-machine ]] && eval "$(docker-machine env dev)"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PATH="/home/mark/.linuxbrew/bin:$PATH"
@@ -79,4 +77,22 @@ export INFOPATH="/home/mark/.linuxbrew/share/info:$INFOPATH"
 
 test -e "/home/mark/.linuxbrew/share/zsh/site-functions" && source /home/mark/.linuxbrew/share/zsh/site-functions
 
-export PATH="/home/mark/.cabal/bin:$PATH"
+export PATH="/home/mark/.cabal/bin:/home/mark/bgch/cb-aws-tools/:$PATH"
+
+export ALTERNATE_EDITOR=""
+export EDITOR=emacsclient
+
+test -e "/usr/share/autojump/autojump.zsh" && source /usr/share/autojump/autojump.zsh
+
+export BIQ_HOME="/home/mark/bgch"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/mark/bgch/biq-athena-lambda/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/mark/bgch/biq-athena-lambda/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/mark/bgch/biq-athena-lambda/node_modules/tabtab/.completions/sls.zsh ]] && . /home/mark/bgch/biq-athena-lambda/node_modules/tabtab/.completions/sls.zsh
+
+
+export NVM_DIR="$HOME/.nvm"
+. "/home/mark/.linuxbrew/opt/nvm/nvm.sh"
