@@ -6,6 +6,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(battery dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status aws background_jobs history time)
+
 DEFAULT_USER="markharris"
 
 # Load aliases
@@ -48,7 +51,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git heroku docker vagrant bundler virtualenv mix boot2docker aws docker zsh-syntax-highlighting)
+plugins=(git bundler virtualenv aws docker zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -75,7 +78,7 @@ export PATH="/home/mark/.linuxbrew/bin:$PATH"
 export MANPATH="/home/mark/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="/home/mark/.linuxbrew/share/info:$INFOPATH"
 
-test -e "/home/mark/.linuxbrew/share/zsh/site-functions" && source /home/mark/.linuxbrew/share/zsh/site-functions
+test -e "/home/linuxbrew/.linuxbrew/share/zsh/site-functions" && source /home/linuxbrew/.linuxbrew/share/zsh/site-functions
 
 export PATH="/home/mark/.cabal/bin:/home/mark/bgch/cb-aws-tools/:$PATH"
 
@@ -86,13 +89,16 @@ test -e "/usr/share/autojump/autojump.zsh" && source /usr/share/autojump/autojum
 
 export BIQ_HOME="/home/mark/bgch"
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/mark/bgch/biq-athena-lambda/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/mark/bgch/biq-athena-lambda/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/mark/bgch/biq-athena-lambda/node_modules/tabtab/.completions/sls.zsh ]] && . /home/mark/bgch/biq-athena-lambda/node_modules/tabtab/.completions/sls.zsh
-
-
 export NVM_DIR="$HOME/.nvm"
-. "/home/mark/.linuxbrew/opt/nvm/nvm.sh"
+. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
+
+eval "$(hub alias -s)"
+
+# Pick the dev AWS environment by default
+asp dev
