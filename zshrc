@@ -11,9 +11,6 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status aws background_jobs history time)
 
 DEFAULT_USER="markharris"
 
-# Load aliases
-. ~/.aliases
-
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
@@ -54,7 +51,7 @@ export NVM_AUTO_USE=true
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(k zsh-nvm git aws docker sbt zsh-syntax-highlighting)
+plugins=(nvm git aws docker sbt zsh-syntax-highlighting k zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -125,3 +122,5 @@ export TMPDIR="/tmp"
 
 export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xmx2G"
 
+# Load aliases
+. ~/.aliases
