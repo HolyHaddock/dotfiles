@@ -48,10 +48,13 @@ HIST_STAMPS="yyyy-mm-dd"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# NVM-USE setup:
+export NVM_AUTO_USE=true
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(k nvm git aws docker sbt zsh-syntax-highlighting)
+plugins=(k zsh-nvm git aws docker sbt zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,3 +115,13 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /home/mark/.nvm/versions/node/v10.13.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /home/mark/.nvm/versions/node/v10.13.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
+# For jetbrains
+PATH=/home/mark/.jetbrainsbin/:${PATH}
+
+export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
+
+export TMPDIR="/tmp"
+
+export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xmx2G"
+
